@@ -4,13 +4,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity @Setter @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Hotel {
+public class Hotel implements Serializable {
 
     @Id
     private int codHotel;
@@ -24,10 +24,14 @@ public class Hotel {
     @Column(nullable = false)
     private double numEstrellas;
 
+    @OneToMany(mappedBy = "codHotel")
+    private List<Foto> fotos;
 
+    @OneToMany(mappedBy = "codHotel")
+    private List<Caracteristica> caracteristicas;
 
-
-
+    @ManyToOne
+    private Ciudad codCiudad;
 
 
 }

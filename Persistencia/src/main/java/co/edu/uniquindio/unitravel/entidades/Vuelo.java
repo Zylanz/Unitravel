@@ -7,6 +7,8 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -14,7 +16,7 @@ import java.time.LocalTime;
 @Setter
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Vuelo {
+public class Vuelo implements Serializable {
 
     @Id
     private int codVuelo;
@@ -27,4 +29,10 @@ public class Vuelo {
 
     @Column(nullable = false)
     private LocalDate fechaLlegada;
+
+    @ManyToOne
+    private Ciudad codOrigen;
+
+    @ManyToOne
+    private Ciudad codDestino;
 }

@@ -6,28 +6,29 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Comentario implements Serializable {
+public class Usuario implements Serializable {
 
     @Id
-    private int codComentario;
+    private int codUsuario;
 
     @Column(nullable = false)
-    private String descripcion;
+    private String cedula;
 
     @Column(nullable = false)
-    private double calificacion;
+    private boolean afiliado;
 
-    @Column(nullable = false)
-    private LocalDate fechaComentario;
+    @OneToMany(mappedBy = "codUsuario")
+    private List<Comentario> comentarios;
 
-    @ManyToOne
-    private Usuario codUsuario;
+
+
+
 
 
 }
