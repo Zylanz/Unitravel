@@ -5,15 +5,15 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Habitacion {
+public class Habitacion implements Serializable {
 
     @Id
     private int codHabitacion;
@@ -27,6 +27,14 @@ public class Habitacion {
     @Column(nullable = false)
     private int capacidad;
 
+    @ElementCollection
+    private List<Cama> cama;
+
+    @OneToMany(mappedBy = "codHabitacion;")
+    private List<Foto> fotos;
+
+    @OneToMany(mappedBy = "codHabitacion")
+    private List<Caracteristica> caracteristicas;
 
 
 

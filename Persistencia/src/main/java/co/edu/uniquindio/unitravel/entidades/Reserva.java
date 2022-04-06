@@ -6,11 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity @Setter @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Reserva {
+public class Reserva implements Serializable {
 
 
     @Id @EqualsAndHashCode.Include
