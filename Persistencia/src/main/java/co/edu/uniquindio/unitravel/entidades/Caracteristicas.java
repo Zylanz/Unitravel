@@ -1,4 +1,4 @@
-package entidades;
+package co.edu.uniquindio.unitravel.entidades;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,9 +17,15 @@ public class Caracteristicas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private int codigo;
+    private int codCaracterisrica;
 
     @Column(nullable = false,length = 100)
     private String descripcion;
+
+    @ManyToOne
+    private Habitacion codHabitacion;
+
+    @ManyToOne
+    private Hotel codHotel;
 
 }

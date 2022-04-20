@@ -17,17 +17,17 @@ public class Ciudad implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codCiudad;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nombre;
 
     @OneToMany(mappedBy = "codCiudad")
     private List<Hotel> hoteles;
 
     @OneToMany(mappedBy = "codOrigen")
-    private List<Ciudad> origenVuelos;
+    private List<Vuelo> origenVuelos;
 
     @OneToMany(mappedBy = "codDestino")
-    private List<Ciudad> destinoVuelos;
+    private List<Vuelo> destinoVuelos;
 
 
 

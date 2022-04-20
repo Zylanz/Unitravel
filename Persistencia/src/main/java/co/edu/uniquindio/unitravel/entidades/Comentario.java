@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -14,13 +15,15 @@ import java.time.LocalDate;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Comentario implements Serializable {
 
-    @Id
+    @Id @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codComentario;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 300)
     private String descripcion;
 
     @Column(nullable = false)
+    @Positive
     private double calificacion;
 
     @Column(nullable = false)
@@ -29,5 +32,6 @@ public class Comentario implements Serializable {
     @ManyToOne
     private Usuario codUsuario;
 
-
+    @ManyToOne
+    private Hotel comentariosHotel;
 }

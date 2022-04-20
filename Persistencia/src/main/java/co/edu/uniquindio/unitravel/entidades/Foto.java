@@ -13,7 +13,8 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 
-@Entity @Setter @Getter
+@Entity
+@Setter @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Foto implements Serializable {

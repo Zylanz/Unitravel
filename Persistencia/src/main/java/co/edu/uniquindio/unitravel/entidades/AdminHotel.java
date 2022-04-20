@@ -1,11 +1,10 @@
-package entidades;
+package co.edu.uniquindio.unitravel.entidades;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,8 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Cliente extends Persona implements Serializable {
+public class AdminHotel extends Persona implements Serializable {
 
-    @Column(nullable = false)
-    private boolean isAfiliado;
+
 }

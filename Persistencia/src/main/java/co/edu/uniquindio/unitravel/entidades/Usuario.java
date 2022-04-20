@@ -1,34 +1,36 @@
 package co.edu.uniquindio.unitravel.entidades;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 @Entity
-@Setter
-@Getter
+@NoArgsConstructor
+@Getter@Setter
+@ToString(callSuper = true,onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Usuario implements Serializable {
+public class Usuario extends Persona implements Serializable {
 
-    @Id
+    @Column(nullable = true)
+    private boolean isAfiliado;
+
+    @Column(unique = true,length = 10)
+    @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codUsuario;
-
-    @Column(nullable = false)
-    private String cedula;
-
-    @Column(nullable = false)
-    private boolean afiliado;
 
     @OneToMany(mappedBy = "codUsuario")
     private List<Comentario> comentarios;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Reserva> reservas;
 
-
-
-
-
+    public Usuario(String cedula, String nombre, @Email String email, String password) {
+        super(cedula, nombre, email, password);
+    }
 }

@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity @Setter @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -24,7 +25,7 @@ public class Reserva implements Serializable {
 
 
     @Column(nullable = false)
-    private MetodoDePago metodoDePago;
+    private MetodoPago metodoDePago;
 
     @Column(nullable = false)
     private LocalDate fechaReserva;
@@ -35,7 +36,14 @@ public class Reserva implements Serializable {
     @Column(nullable = false)
     private LocalDate fechaLlegada;
 
+    @ManyToMany(mappedBy = "reservas")
+    private List<Silla> Sillas;
 
+    @ManyToMany
+    private List<Hotel> hoteles;
+
+    @ManyToOne
+    private Usuario usuario;
 
 
 

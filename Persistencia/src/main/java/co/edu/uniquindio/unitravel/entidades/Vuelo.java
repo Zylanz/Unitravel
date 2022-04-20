@@ -2,37 +2,47 @@ package co.edu.uniquindio.unitravel.entidades;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Future;
+import java.io.Serializable;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Entity
-@Setter
-@Getter
+@NoArgsConstructor
+@Getter@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Vuelo implements Serializable {
 
     @Id
-    private int codVuelo;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    private int codigo;
 
     @Column(nullable = false)
-    private LocalTime horaSalida;
+    private LocalDateTime horaDespegue;
+
+    @Future
+    @Column(nullable = false)
+    private LocalDate horaAterrizaje;
 
     @Column(nullable = false)
-    private LocalDate fechaSalida;
+    private String Aerolinea;
 
+    //Generado Aleatoriamente
     @Column(nullable = false)
-    private LocalDate fechaLlegada;
+    private int silla;
+
+
 
     @ManyToOne
     private Ciudad codOrigen;
 
-    @ManyToOne
-    private Ciudad codDestino;
+     @ManyToOne
+     private Ciudad codDestino;
 }
