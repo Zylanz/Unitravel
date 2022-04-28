@@ -13,18 +13,12 @@ import java.util.Map;
 @NoArgsConstructor
 @Getter@Setter
 @ToString(callSuper = true,onlyExplicitlyIncluded = true)
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Usuario extends Persona implements Serializable {
 
     @Column(nullable = true)
     private boolean isAfiliado;
 
-    @Column(unique = true,length = 10)
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int codUsuario;
-
-    @OneToMany(mappedBy = "codUsuario")
+    @OneToMany(mappedBy = "cedulaUsuario")
     private List<Comentario> comentarios;
 
     @OneToMany(mappedBy = "usuario")

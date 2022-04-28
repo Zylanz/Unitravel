@@ -30,7 +30,7 @@ public class Comentario implements Serializable {
     private LocalDate fechaComentario;
 
     @ManyToOne
-    private Usuario codUsuario;
+    private Usuario cedulaUsuario;
 
     @ManyToOne
     private Hotel comentariosHotel;

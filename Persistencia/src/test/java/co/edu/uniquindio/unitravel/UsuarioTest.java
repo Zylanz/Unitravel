@@ -67,4 +67,13 @@ public class UsuarioTest {
 
     }
 
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void buscarPorCorreoContraseña(){
+
+        Usuario userFound = usuarioRepo.findUsuarioByEmailAndPassword
+                ("a@mail.com","pass1");
+        Assertions.assertEquals("cedula1",userFound.getCedula());
+    }
+
 }
