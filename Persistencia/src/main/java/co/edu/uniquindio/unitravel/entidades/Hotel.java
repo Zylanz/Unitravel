@@ -1,8 +1,6 @@
 package co.edu.uniquindio.unitravel.entidades;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
@@ -11,6 +9,7 @@ import java.util.List;
 
 @Entity @Setter @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor @AllArgsConstructor
 public class Hotel implements Serializable {
 
     @Id @EqualsAndHashCode.Include
@@ -27,14 +26,14 @@ public class Hotel implements Serializable {
     @Positive
     private double numEstrellas;
 
-    //@ElementCollection
-    //private Map<String, String> telefonosHotel;
+    @ElementCollection
+    private List<String> telefonosHotel;
 
     @OneToMany(mappedBy = "codHotel")
     private List<Foto> fotos;
 
-    @OneToMany(mappedBy = "codHotel")
-    private List<Caracteristicas> caracteristicas;
+    @ManyToMany
+    private List<Caracteristica> caracteristicas;
 
     @ManyToOne
     private Ciudad codCiudad;

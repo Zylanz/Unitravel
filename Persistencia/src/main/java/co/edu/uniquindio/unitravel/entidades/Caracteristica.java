@@ -1,31 +1,30 @@
 package co.edu.uniquindio.unitravel.entidades;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Caracteristicas implements Serializable {
+public class Caracteristica implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private int codCaracterisrica;
+    private int codCaracteristica;
 
     @Column(nullable = false,length = 100)
     private String descripcion;
 
-    @ManyToOne
-    private Habitacion codHabitacion;
+    @ManyToMany(mappedBy = "caracteristicas")
+    private List<Habitacion> codHabitaciones;
 
-    @ManyToOne
-    private Hotel codHotel;
+    @ManyToMany(mappedBy = "caracteristicas")
+    private List<Hotel> codHotel;
 
 }

@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface CiudadRepo extends JpaRepository<Ciudad, Integer> {
 
-    @Override
-    Ciudad getById(Integer integer);
+    Ciudad findByCodCiudad(int codigoCiudad);
 
 }

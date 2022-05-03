@@ -2,6 +2,7 @@ package co.edu.uniquindio.unitravel;
 
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+import co.edu.uniquindio.unitravel.entidades.Ciudad;
 import co.edu.uniquindio.unitravel.entidades.Usuario;
 import co.edu.uniquindio.unitravel.repositorios.UsuarioRepo;
 import org.junit.jupiter.api.Assertions;
@@ -74,6 +75,27 @@ public class UsuarioTest {
         Usuario userFound = usuarioRepo.findUsuarioByEmailAndPassword
                 ("a@mail.com","pass1");
         Assertions.assertEquals("cedula1",userFound.getCedula());
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void buscarDestinos(){
+
+        List<String> ciudades = usuarioRepo.ListarDestinos();
+
+        System.out.println(ciudades);
+
+    }
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void loggin()
+    {
+        String email="a@mail.com";
+        String pass="pass1";
+
+        Usuario usuarioEncontrado=usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
+
+        Assertions.assertNotNull(usuarioEncontrado);
     }
 
 }

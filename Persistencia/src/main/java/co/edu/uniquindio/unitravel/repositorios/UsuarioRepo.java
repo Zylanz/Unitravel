@@ -1,5 +1,7 @@
 package co.edu.uniquindio.unitravel.repositorios;
 
+import co.edu.uniquindio.unitravel.entidades.Ciudad;
+import co.edu.uniquindio.unitravel.entidades.Reserva;
 import co.edu.uniquindio.unitravel.entidades.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +22,19 @@ public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
     List<Usuario> findAllUsuarioByNombre (String nombre);
 
     Usuario findUsuarioByEmailAndPassword(String email, String pass);
+
+    //Buscar destinos
+    @Query("select c.nombre from Ciudad c")
+    List<String> ListarDestinos ();
+
+    //Buscar Hoteles
+    @Query("select h.nombre from Hotel h")
+    List<String> ListarHoteles ();
+
+    //Buscar hotel por ciudad
+    @Query("select h.nombre from Hotel h where h.codCiudad = :codC")
+    List<String> ListarHotelesPorCiudad(int codC);
+
+    @Query("select r from Usuario u join u.reservas r" )
+    List<Reserva> listarReservas();
 }
