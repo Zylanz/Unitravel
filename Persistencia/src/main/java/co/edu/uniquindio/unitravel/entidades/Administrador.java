@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 
 @Entity
@@ -15,5 +16,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Administrador extends Persona implements Serializable {
 
-
+    public Administrador(String cedula, String nombre, @Email String email, String password) {
+        super(cedula, nombre, email, password);
+    }
 }

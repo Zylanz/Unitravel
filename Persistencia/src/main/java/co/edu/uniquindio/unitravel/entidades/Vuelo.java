@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @NoArgsConstructor
@@ -25,20 +26,21 @@ public class Vuelo implements Serializable {
     private int codigo;
 
     @Column(nullable = false)
-    private LocalDateTime horaDespegue;
+    private LocalDate fecha;
+
+    @Column(nullable = false)
+    private LocalTime horaDespegue;
 
     @Future
     @Column(nullable = false)
-    private LocalDate horaAterrizaje;
+    private LocalTime horaAterrizaje;
 
     @Column(nullable = false)
-    private String Aerolinea;
+    private String aerolinea;
 
     //Generado Aleatoriamente
     @Column(nullable = false)
     private int silla;
-
-
 
     @ManyToOne
     private Ciudad codOrigen;

@@ -31,7 +31,8 @@ public class Ciudad implements Serializable {
     @OneToMany(mappedBy = "codDestino")
     private List<Vuelo> destinoVuelos;
 
-    public Ciudad(String nombre) {
+    public Ciudad(int codCiudad, String nombre) {
+        this.codCiudad = codCiudad;
         this.nombre = nombre;
     }
 }
