@@ -9,5 +9,7 @@ public interface AdministradorRepo extends JpaRepository<Administrador, String> 
 
     Administrador findByEmailAndPassword(String email, String pass);
 
+    Administrador findByCedula(String cedula);
+
 
 }

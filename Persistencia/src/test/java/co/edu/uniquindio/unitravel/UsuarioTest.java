@@ -86,5 +86,16 @@ public class UsuarioTest {
         System.out.println(ciudades);
 
     }
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void loggin()
+    {
+        String email="a@mail.com";
+        String pass="pass1";
+
+        Usuario usuarioEncontrado=usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
+
+        Assertions.assertNotNull(usuarioEncontrado);
+    }
 
 }
