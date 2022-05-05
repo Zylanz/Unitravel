@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
@@ -37,4 +38,7 @@ public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
 
     @Query("select r from Usuario u join u.reservas r" )
     List<Reserva> listarReservas();
+
+    Optional<Usuario> findByEmail(String email);
+
 }

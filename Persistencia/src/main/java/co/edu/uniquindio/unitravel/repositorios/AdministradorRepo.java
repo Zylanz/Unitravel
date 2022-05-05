@@ -4,12 +4,16 @@ import co.edu.uniquindio.unitravel.entidades.Administrador;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface AdministradorRepo extends JpaRepository<Administrador, String> {
 
     Administrador findByEmailAndPassword(String email, String pass);
 
     Administrador findByCedula(String cedula);
+
+    Optional<Administrador> findByEmail(String email);
 
 
 }
