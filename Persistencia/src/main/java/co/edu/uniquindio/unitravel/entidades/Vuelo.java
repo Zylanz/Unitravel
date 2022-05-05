@@ -1,9 +1,6 @@
 package co.edu.uniquindio.unitravel.entidades;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
@@ -15,7 +12,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 @Getter@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Vuelo implements Serializable {
@@ -47,4 +44,5 @@ public class Vuelo implements Serializable {
 
      @ManyToOne
      private Ciudad codDestino;
+
 }

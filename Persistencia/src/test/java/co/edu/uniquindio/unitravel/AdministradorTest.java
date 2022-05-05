@@ -11,6 +11,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 
+import java.util.Optional;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class AdministradorTest {
@@ -26,9 +28,9 @@ public class AdministradorTest {
     @Sql("classpath:dataset.sql")
     public void login()
     {
-        Administrador admin = administradorRepo.findByEmailAndPassword("pabloadmin1@email.com", "pablo123");
+        Optional<Administrador> admin = administradorRepo.findByEmailAndPassword("pabloadmin1@email.com", "pablo123");
 
-        Assertions.assertEquals("pabloadmin1", admin.getNombre());
+        Assertions.assertEquals("pabloadmin1", admin.get().getNombre());
     }
 
 

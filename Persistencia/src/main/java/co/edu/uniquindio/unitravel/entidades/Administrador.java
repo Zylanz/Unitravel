@@ -13,7 +13,6 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Administrador extends Persona implements Serializable {
 
     public Administrador(String cedula, String nombre, @Email String email, String password) {
