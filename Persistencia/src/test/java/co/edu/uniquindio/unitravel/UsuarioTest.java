@@ -72,9 +72,9 @@ public class UsuarioTest {
     @Sql("classpath:dataset.sql")
     public void buscarPorCorreoContraseña(){
 
-        Usuario userFound = usuarioRepo.findUsuarioByEmailAndPassword
+        Optional<Usuario> userFound = usuarioRepo.findUsuarioByEmailAndPassword
                 ("a@mail.com","pass1");
-        Assertions.assertEquals("cedula1",userFound.getCedula());
+        Assertions.assertEquals("cedula1",userFound.get().getCedula());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class UsuarioTest {
         String email="a@mail.com";
         String pass="pass1";
 
-        Usuario usuarioEncontrado=usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
+        Optional<Usuario> usuarioEncontrado=usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
 
         Assertions.assertNotNull(usuarioEncontrado);
     }
