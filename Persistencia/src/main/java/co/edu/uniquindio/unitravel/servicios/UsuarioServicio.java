@@ -14,11 +14,15 @@ public interface UsuarioServicio {
 
     void eliminarUsuario(String cedula) throws Exception;
 
+    Usuario obtenerUsuario(String cedula) throws Exception;
+
     List<Usuario> listarUsuarios();
 
     List<Reserva> listarReservas(Usuario u);
 
-    List<Comentario> agregarComentario(Comentario c);
+    Comentario agregarComentario(Comentario c);
+
+
 
     // Gestionar reserva
     Reserva reservar() throws Exception;
@@ -27,7 +31,9 @@ public interface UsuarioServicio {
 
     void eliminarReserva() throws Exception;
 
-    List<Reserva> reservasUsuario();
+    List<Reserva> reservasUsuario(String emaiUsuario);
+    //
 
-    Usuario recuperarContrasena()throws Exception;
+    void recuperarPassword(String email)throws Exception;
+
 }

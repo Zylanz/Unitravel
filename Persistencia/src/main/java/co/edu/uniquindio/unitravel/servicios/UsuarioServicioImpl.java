@@ -3,6 +3,9 @@ package co.edu.uniquindio.unitravel.servicios;
 import co.edu.uniquindio.unitravel.entidades.Comentario;
 import co.edu.uniquindio.unitravel.entidades.Reserva;
 import co.edu.uniquindio.unitravel.entidades.Usuario;
+import co.edu.uniquindio.unitravel.repositorios.CiudadRepo;
+import co.edu.uniquindio.unitravel.repositorios.ComentarioRepo;
+import co.edu.uniquindio.unitravel.repositorios.HotelRepo;
 import co.edu.uniquindio.unitravel.repositorios.UsuarioRepo;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +15,20 @@ import java.util.Optional;
 @Service
 public class UsuarioServicioImpl implements UsuarioServicio{
 
-    private final UsuarioRepo usuarioRepo;
+    private  UsuarioRepo usuarioRepo;
+    private  ComentarioRepo comentarioRepo;
+    private CiudadRepo ciudadRepo;
+    private HotelRepo hotelRepo;
+    private EmailService emailService;
 
-    public UsuarioServicioImpl(UsuarioRepo usuarioRepo) {
+
+
+    public UsuarioServicioImpl(UsuarioRepo usuarioRepo, CiudadRepo ciudadRepo, HotelRepo hotelRepo, ComentarioRepo comentarioRepo,EmailService emailService) {
         this.usuarioRepo = usuarioRepo;
+        this.ciudadRepo = ciudadRepo;
+        this.hotelRepo = hotelRepo;
+        this.comentarioRepo = comentarioRepo;
+        this.emailService=emailService;
     }
 
     @Override
@@ -51,6 +64,11 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     }
 
     @Override
+    public Usuario obtenerUsuario(String cedula) throws Exception {
+        return null;
+    }
+
+    @Override
     public List<Usuario> listarUsuarios() {
         List<Usuario> usuarios = usuarioRepo.listarUsuarios();
         return usuarios;
@@ -64,8 +82,9 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     }
 
     @Override
-    public List<Comentario> agregarComentario(Comentario c) {
-        return null;
+    public Comentario agregarComentario(Comentario c) {
+        // validar que el user y el hotel existan
+        return  comentarioRepo.save(c);
     }
 
     @Override
@@ -84,12 +103,111 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     }
 
     @Override
-    public List<Reserva> reservasUsuario() {
+    public List<Reserva> reservasUsuario(String email) {
         return null;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Override
-    public Usuario recuperarContrasena() throws Exception {
-        return null;
+    public void recuperarPassword(String email) throws Exception {
+        Optional<Usuario> usuario = usuarioRepo.findByEmail(email);
+
+        if (usuario.isEmpty()){
+            throw new Exception("El correo no pertenece a ningún usuario");
+        }
+        String password = usuario.get().getPassword();
+        emailService.enviarEmail("Recuperación Contraseña", "Hola, esta es tu contraseña " + password, email );
+
     }
 }
