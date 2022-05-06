@@ -42,7 +42,7 @@ public class AdministradorServicioImpl implements AdministradorServicio{
     @Override
     public Administrador actualizarAdministrador(Administrador a) throws Exception {
         Optional<Administrador> buscado = administradorRepo.findById(a.getCedula());
-        if(!buscado.isEmpty()){
+        if(buscado.isEmpty()){
             throw new Exception("El administrador no esta registrado");
         }
 

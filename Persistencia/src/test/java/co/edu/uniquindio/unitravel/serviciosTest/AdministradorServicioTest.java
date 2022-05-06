@@ -115,13 +115,8 @@ public class AdministradorServicioTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void obtenerCiudadTest(){
-        try {
             Ciudad buscado = administradorServicio.obtenerCiudad(3);
             Assertions.assertNotNull(buscado);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     @Test

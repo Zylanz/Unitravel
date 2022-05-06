@@ -50,4 +50,10 @@ public class Hotel implements Serializable {
     @ManyToOne
     private AdminHotel administrador;
 
+    public Hotel(int codHotel, String nombre, String direccion, double numEstrellas) {
+        this.codHotel = codHotel;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.numEstrellas = numEstrellas;
+    }
 }

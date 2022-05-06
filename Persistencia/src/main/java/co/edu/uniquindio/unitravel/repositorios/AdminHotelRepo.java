@@ -13,6 +13,7 @@ import java.util.Optional;
 @Repository
 public interface AdminHotelRepo extends JpaRepository<AdminHotel, String>
 {
-
     Optional<AdminHotel> findByEmail(String email);
+
+    Optional<AdminHotel> findByEmailAndPassword(String email, String password);
 }
