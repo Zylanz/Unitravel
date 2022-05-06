@@ -1,8 +1,6 @@
 package co.edu.uniquindio.unitravel.servicios;
 
-import co.edu.uniquindio.unitravel.entidades.Comentario;
-import co.edu.uniquindio.unitravel.entidades.Reserva;
-import co.edu.uniquindio.unitravel.entidades.Usuario;
+import co.edu.uniquindio.unitravel.entidades.*;
 
 import java.util.List;
 
@@ -14,26 +12,23 @@ public interface UsuarioServicio {
 
     void eliminarUsuario(String cedula) throws Exception;
 
-    Usuario obtenerUsuario(String cedula) throws Exception;
-
     List<Usuario> listarUsuarios();
 
-    List<Reserva> listarReservas(Usuario u);
+    Usuario login (String email, String pass) throws Exception;
 
-    Comentario agregarComentario(Comentario c);
+    Reserva realizarReserva(Hotel h, Reserva r, Usuario u, int cantidadSillas) throws Exception;
 
+    void eliminarReserva(int codigoReserva) throws Exception;
 
+    Reserva actualizarReserva(Reserva r) throws Exception;
 
-    // Gestionar reserva
-    Reserva reservar() throws Exception;
+    List<Reserva> listarReservas();
+    boolean isAfiliado(Usuario u) throws Exception;
 
-    Reserva actualizarReserva() throws Exception;
+    List<Hotel> listarHotelesPorCiudad(String nombreCiudad) throws Exception;
 
-    void eliminarReserva() throws Exception;
+    Reserva obtenerReserva(int codigoReserva) throws Exception;
+    void recuperarPassword(String email) throws Exception;
 
-    List<Reserva> reservasUsuario(String emaiUsuario);
-    //
-
-    void recuperarPassword(String email)throws Exception;
-
+    Comentario agregarComentario(Comentario c) throws Exception;
 }

@@ -1,12 +1,10 @@
 package co.edu.uniquindio.unitravel.servicios;
 
 
-import co.edu.uniquindio.unitravel.entidades.AdminHotel;
-import co.edu.uniquindio.unitravel.entidades.Administrador;
-import co.edu.uniquindio.unitravel.entidades.Ciudad;
-import co.edu.uniquindio.unitravel.entidades.Vuelo;
+import co.edu.uniquindio.unitravel.entidades.*;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AdministradorServicio {
 
@@ -57,5 +55,7 @@ public interface AdministradorServicio {
     void eliminarAdminHotel(String cedula) throws Exception;
 
     List<AdminHotel> listarAdminsHotel();
+
+    Silla crearSilla(Silla s) throws Exception;
 
 }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import javax.mail.internet.MimeMessage;
 
 @Service
-public class EmailService {
-
+public class EmailService
+{
     @Autowired
     private JavaMailSender sender;
 
@@ -29,8 +29,5 @@ public class EmailService {
         }
 
         return false;
-
-
-
     }
 }

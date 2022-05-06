@@ -25,6 +25,10 @@ public class Habitacion implements Serializable {
 
     @Column(nullable = false)
     @Positive
+    private double costo;
+
+    @Column(nullable = false)
+    @Positive
     private double precio;
 
     @Column(nullable = false)
