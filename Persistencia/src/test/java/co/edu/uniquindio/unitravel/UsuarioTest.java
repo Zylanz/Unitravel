@@ -5,6 +5,7 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import co.edu.uniquindio.unitravel.entidades.Ciudad;
 import co.edu.uniquindio.unitravel.entidades.Usuario;
 import co.edu.uniquindio.unitravel.repositorios.UsuarioRepo;
+import co.edu.uniquindio.unitravel.servicios.EmailService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class UsuarioTest {
 
     @Autowired
     private UsuarioRepo usuarioRepo;
-
+    private EmailService emailService;
 
 
     @Test
@@ -76,7 +77,6 @@ public class UsuarioTest {
                 ("a@mail.com","pass1");
         Assertions.assertEquals("cedula1",userFound.get().getCedula());
     }
-
     @Test
     @Sql("classpath:dataset.sql")
     public void buscarDestinos(){
@@ -88,7 +88,7 @@ public class UsuarioTest {
     }
     @Test
     @Sql("classpath:dataset.sql")
-    public void loggin()
+    public void login()
     {
         String email="a@mail.com";
         String pass="pass1";
@@ -98,4 +98,9 @@ public class UsuarioTest {
         Assertions.assertNotNull(usuarioEncontrado);
     }
 
+    @Test
+    public void enviarCorreoTest(){
+        boolean estado = emailService.enviarEmail("Prueba", "Este es un mensaje","nmurilloc@uqvirtual.edu.co");
+
+    }
 }

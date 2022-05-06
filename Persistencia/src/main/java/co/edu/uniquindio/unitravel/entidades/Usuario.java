@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Entity
 @NoArgsConstructor
-@Getter@Setter
+@Setter@Getter
 @ToString(callSuper = true,onlyExplicitlyIncluded = true)
 public class Usuario extends Persona implements Serializable {
 

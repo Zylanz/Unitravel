@@ -1,10 +1,7 @@
 package co.edu.uniquindio.unitravel.servicios;
 
 import co.edu.uniquindio.unitravel.entidades.*;
-import co.edu.uniquindio.unitravel.repositorios.AdminHotelRepo;
-import co.edu.uniquindio.unitravel.repositorios.AdministradorRepo;
-import co.edu.uniquindio.unitravel.repositorios.CiudadRepo;
-import co.edu.uniquindio.unitravel.repositorios.VueloRepo;
+import co.edu.uniquindio.unitravel.repositorios.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +14,15 @@ public class AdministradorServicioImpl implements AdministradorServicio{
     CiudadRepo ciudadRepo;
     VueloRepo vueloRepo;
     AdminHotelRepo adminHotelRepo;
+    SillaRepo sillaRepo;
 
     public AdministradorServicioImpl(AdministradorRepo administradorRepo, CiudadRepo ciudadRepo,
-                                     VueloRepo vueloRepo, AdminHotelRepo adminHotelRepo) {
+                                     VueloRepo vueloRepo, AdminHotelRepo adminHotelRepo, SillaRepo sillaRepo) {
         this.administradorRepo = administradorRepo;
         this.ciudadRepo = ciudadRepo;
         this.vueloRepo = vueloRepo;
         this.adminHotelRepo = adminHotelRepo;
+        this.sillaRepo = sillaRepo;
     }
 
     @Override
@@ -205,6 +204,17 @@ public class AdministradorServicioImpl implements AdministradorServicio{
     public List<AdminHotel> listarAdminsHotel() {
         List<AdminHotel> adminHotelList = adminHotelRepo.findAll();
         return adminHotelList;
+    }
+
+    @Override
+    public Silla crearSilla(Silla s) throws Exception
+    {
+        Optional<Silla> buscado = sillaRepo.findById(s.getCodSilla());
+        if (buscado.isPresent()){
+            throw new Exception("La silla ya está agregada");
+        }
+
+        return sillaRepo.save(s);
     }
 
 

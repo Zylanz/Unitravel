@@ -40,4 +40,6 @@ public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
     List<Reserva> listarReservas();
 
     Optional<Usuario> findByEmail(String email);
+
+
 }
