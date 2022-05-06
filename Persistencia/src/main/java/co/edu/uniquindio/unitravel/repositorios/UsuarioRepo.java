@@ -1,6 +1,7 @@
 package co.edu.uniquindio.unitravel.repositorios;
 
 import co.edu.uniquindio.unitravel.entidades.Ciudad;
+import co.edu.uniquindio.unitravel.entidades.Comentario;
 import co.edu.uniquindio.unitravel.entidades.Reserva;
 import co.edu.uniquindio.unitravel.entidades.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -38,6 +39,8 @@ public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
 
     @Query("select r from Usuario u join u.reservas r" )
     List<Reserva> listarReservas();
+
+
 
     Optional<Usuario> findByEmail(String email);
 
