@@ -18,11 +18,11 @@ public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
     List<Usuario> listarUsuarios();
 
     @Query("select u from Usuario u where u.email = :email")
-    Usuario buscarPorEmail( @Param("email") String email);
+    Optional<Usuario> buscarPorEmail( @Param("email") String email);
 
     List<Usuario> findAllUsuarioByNombre (String nombre);
 
-    Usuario findUsuarioByEmailAndPassword(String email, String pass);
+    Optional<Usuario> findUsuarioByEmailAndPassword(String email, String pass);
 
     //Buscar destinos
     @Query("select c.nombre from Ciudad c")
@@ -40,5 +40,6 @@ public interface UsuarioRepo  extends JpaRepository<Usuario, String> {
     List<Reserva> listarReservas();
 
     Optional<Usuario> findByEmail(String email);
+
 
 }

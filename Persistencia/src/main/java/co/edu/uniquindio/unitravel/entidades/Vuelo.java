@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import java.io.Serializable;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,6 +22,10 @@ public class Vuelo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int codigo;
+
+    @Column(nullable = false)
+    @Positive
+    private double costo;
 
     @Column(nullable = false)
     private LocalDate fecha;

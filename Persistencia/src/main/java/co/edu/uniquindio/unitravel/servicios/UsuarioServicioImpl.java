@@ -1,19 +1,38 @@
 package co.edu.uniquindio.unitravel.servicios;
 
-import co.edu.uniquindio.unitravel.entidades.Usuario;
-import co.edu.uniquindio.unitravel.repositorios.UsuarioRepo;
+import co.edu.uniquindio.unitravel.entidades.*;
+import co.edu.uniquindio.unitravel.repositorios.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class UsuarioServicioImpl implements UsuarioServicio{
 
     private final UsuarioRepo usuarioRepo;
+    private final ReservaRepo reservaRepo;
+    private final HotelRepo hotelRepo;
+    private final SillaRepo sillaRepo;
+    private final CiudadRepo ciudadRepo;
+    private final ComentarioRepo comentarioRepo;
+    private EmailService emailService;
 
-    public UsuarioServicioImpl(UsuarioRepo usuarioRepo) {
+
+    public UsuarioServicioImpl(UsuarioRepo usuarioRepo, ReservaRepo reservaRepo, HotelRepo hotelRepo,
+                               SillaRepo sillaRepo, CiudadRepo ciudadRepo, ComentarioRepo comentarioRepo,
+                               EmailService emailService) {
         this.usuarioRepo = usuarioRepo;
+        this.reservaRepo = reservaRepo;
+        this.hotelRepo = hotelRepo;
+        this.sillaRepo = sillaRepo;
+        this.ciudadRepo = ciudadRepo;
+        this.comentarioRepo = comentarioRepo;
+        this.emailService = emailService;
     }
 
     @Override
@@ -52,5 +71,153 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     public List<Usuario> listarUsuarios() {
         List<Usuario> usuarios = usuarioRepo.listarUsuarios();
         return usuarios;
+    }
+
+    @Override
+    public Usuario login (String email, String pass) throws Exception
+    {
+        Optional<Usuario> buscado=usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
+
+        if (buscado.isEmpty())
+        {
+            throw new Exception("Datos de acceso inválidos");
+        }
+
+        return buscado.get();
+    }
+
+    @Override
+    public Reserva realizarReserva(Hotel h, Reserva r, Usuario u, int cantidadSillas) throws Exception
+    {
+        Optional<Hotel> hotelBuscado=hotelRepo.findByCodHotel(h.getCodHotel());
+        Optional<Reserva> reservaBuscada=reservaRepo.buscarReservaPorHotel(r.getFechaReserva(), hotelBuscado.get().getCodHotel());
+
+        if (reservaBuscada.isPresent())
+        {
+            throw new Exception("No se puede realizar una reserva en esta fecha");
+        }
+
+        Optional<Usuario> usuarioBuscado=usuarioRepo.findUsuarioByEmailAndPassword(u.getEmail(), u.getPassword());
+
+        if (usuarioBuscado.isEmpty())
+        {
+            throw new Exception("El usuario no se encuentra loggeado");
+        }
+
+
+        int contador=0;
+        List<Silla> sillasReservadas=new ArrayList<>();
+
+        while(contador<cantidadSillas)
+        {
+            Random rnd = new Random();
+            int codSilla = (int) (rnd.nextDouble() * 50 + 1);
+            Optional<Silla> sillaReservada = sillaRepo.findByCodSilla(codSilla);
+
+            if(sillaReservada.isEmpty())
+            {
+                throw new Exception("La silla no se encuentra disponble");
+            }
+
+            sillasReservadas.add(sillaReservada.get());
+
+            contador++;
+        }
+
+        r.setSillas(sillasReservadas);
+
+        return reservaRepo.save(r);
+    }
+
+    @Override
+    public void eliminarReserva(int codigoReserva) throws Exception
+    {
+        Optional<Reserva> buscado = reservaRepo.findById(codigoReserva);
+
+        if(!buscado.isPresent())
+        {
+            throw new Exception("La reserva no esta registrada");
+        }
+        reservaRepo.delete(buscado.get());
+    }
+
+    @Override
+    public Reserva actualizarReserva(Reserva r) throws Exception
+    {
+        Optional<Reserva> buscado = reservaRepo.findById(r.getCodReserva());
+
+        if(!buscado.isPresent())
+        {
+            throw new Exception("La reserva no se encuentra registrada");
+        }
+        return reservaRepo.save(r);
+    }
+
+    @Override
+    public List<Reserva> listarReservas()
+    {
+        List<Reserva> reservas = reservaRepo.findAll();
+        return reservas;
+    }
+
+    @Override
+    public boolean isAfiliado(Usuario u) throws Exception
+    {
+        boolean afiliado=false;
+        Optional<Usuario> buscado=usuarioRepo.findById(u.getCedula());
+
+        if (buscado.isPresent())
+        {
+            buscado.get().isAfiliado();
+        }
+
+        return afiliado;
+    }
+
+    @Override
+    public List<Hotel> listarHotelesPorCiudad(String nombreCiudad) throws Exception
+    {
+        Optional<Ciudad> ciudad=ciudadRepo.findByNombre(nombreCiudad);
+
+        if(ciudad.isEmpty())
+        {
+            throw new Exception("La ciudad no se encuentra registrada");
+        }
+
+        return hotelRepo.buscarHotelPorCiudad(ciudad.get().getCodCiudad());
+    }
+
+    @Override
+    public Reserva obtenerReserva(int codigoReserva) throws Exception
+    {
+        Optional<Reserva> buscado=reservaRepo.findById(codigoReserva);
+
+        if (buscado.isEmpty())
+        {
+            throw new Exception("No se encuentra la reserva solicitada");
+        }
+
+        return buscado.get();
+    }
+
+
+    @Override
+    public void recuperarPassword(String email) throws Exception
+    {
+        Optional<Usuario> usuario = usuarioRepo.findByEmail(email);
+
+        if (usuario.isEmpty()){
+            throw new Exception("El correo no pertenece a ningún usuario");
+        }
+        String password = usuario.get().getPassword();
+        emailService.enviarEmail("Recuperación Contraseña", "Hola, esta es tu contraseña " + password, email );
+
+    }
+
+    @Override
+    public Comentario agregarComentario(Comentario c) throws Exception
+    {
+        // validar que el user y el hotel existan
+        return  comentarioRepo.save(c);
     }
 }
