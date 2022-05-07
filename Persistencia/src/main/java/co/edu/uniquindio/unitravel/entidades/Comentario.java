@@ -1,17 +1,14 @@
 package co.edu.uniquindio.unitravel.entidades;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
-@Setter
-@Getter
+@Entity @Setter @Getter
+@AllArgsConstructor @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Comentario implements Serializable {
 
@@ -30,8 +27,10 @@ public class Comentario implements Serializable {
     private LocalDate fechaComentario;
 
     @ManyToOne
-    private Usuario cedulaUsuario;
+    private Usuario usuario;
 
     @ManyToOne
-    private Hotel comentariosHotel;
+    private Hotel comentarioHotel;
+
+
 }

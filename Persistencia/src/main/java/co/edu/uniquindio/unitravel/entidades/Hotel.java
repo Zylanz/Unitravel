@@ -38,10 +38,10 @@ public class Hotel implements Serializable {
     @ManyToOne
     private Ciudad codCiudad;
 
-    @ManyToMany(mappedBy = "hoteles")
+    @OneToMany(mappedBy = "hotel")
     private List<Reserva> reservas;
 
-    @OneToMany(mappedBy = "comentariosHotel")
+    @OneToMany(mappedBy = "comentarioHotel")
     private List<Comentario> comentarios;
 
     @OneToMany(mappedBy = "hotel")

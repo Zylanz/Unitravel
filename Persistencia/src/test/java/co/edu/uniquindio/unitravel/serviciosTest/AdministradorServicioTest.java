@@ -147,7 +147,7 @@ public class AdministradorServicioTest {
         Ciudad origen = administradorServicio.obtenerCiudad(5);
         Ciudad destino = administradorServicio.obtenerCiudad(2);
         Vuelo vuelo = new Vuelo
-        (21, LocalDate.of(2022,12,1), LocalTime.of(10,0,0),
+        (21, 2.0,LocalDate.of(2022,12,1), LocalTime.of(10,0,0),
                 LocalTime.of(11,0,0),"",1,origen,destino);
         try {
             Vuelo guardado = administradorServicio.registrarVuelo(vuelo);

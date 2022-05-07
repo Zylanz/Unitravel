@@ -49,9 +49,14 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     }
 
     @Override
+    public Usuario obtenerUsuario(String cedula){
+        return usuarioRepo.findById(cedula).orElse(null);
+    }
+
+    @Override
     public Usuario actualizarUsuario(Usuario u) throws Exception {
         Optional<Usuario> buscado = usuarioRepo.findById(u.getCedula());
-        if(!buscado.isPresent()){
+        if(buscado.isEmpty()){
             throw new Exception("El usuario no esta registrado");
         }
         return usuarioRepo.save(u);
@@ -60,7 +65,7 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     @Override
     public void eliminarUsuario(String cedula) throws Exception {
         Optional<Usuario> buscado = usuarioRepo.findById(cedula);
-        if(!buscado.isPresent()){
+        if(buscado.isEmpty()){
             throw new Exception("El usuario no esta registrado");
         }
        usuarioRepo.delete(buscado.get());
@@ -76,7 +81,7 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     @Override
     public Usuario login (String email, String pass) throws Exception
     {
-        Optional<Usuario> buscado=usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
+        Optional<Usuario> buscado = usuarioRepo.findUsuarioByEmailAndPassword(email,pass);
 
         if (buscado.isEmpty())
         {
@@ -217,7 +222,16 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     @Override
     public Comentario agregarComentario(Comentario c) throws Exception
     {
-        // validar que el user y el hotel existan
+        Hotel hotel = c.getComentarioHotel();
+        Optional<Hotel> hotelVerificado = hotelRepo.findByCodHotel(hotel.getCodHotel());
+        if(hotelVerificado.isEmpty()){
+            throw new Exception("El hotel no se encuentra");
+        }
+        Usuario user = c.getUsuario();
+        Optional<Usuario> usuarioVerificado = usuarioRepo.findById(user.getCedula());
+        if (usuarioVerificado.isEmpty()){
+            throw new Exception("El usuario no esta registrado");
+        }
         return  comentarioRepo.save(c);
     }
 }

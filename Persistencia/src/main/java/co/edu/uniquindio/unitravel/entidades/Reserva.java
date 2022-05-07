@@ -1,9 +1,7 @@
 package co.edu.uniquindio.unitravel.entidades;
 
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity @Setter @Getter
+@NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Reserva implements Serializable {
 
@@ -19,10 +18,8 @@ public class Reserva implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codReserva;
 
-
     @Column(nullable = false)
     private double valor;
-
 
     @Column(nullable = false)
     private MetodoPago metodoDePago;
@@ -39,8 +36,8 @@ public class Reserva implements Serializable {
     @ManyToMany(mappedBy = "reservas")
     private List<Silla> Sillas;
 
-    @ManyToMany
-    private List<Hotel> hoteles;
+    @ManyToOne
+    private Hotel hotel;
 
     @ManyToOne
     private Usuario usuario;

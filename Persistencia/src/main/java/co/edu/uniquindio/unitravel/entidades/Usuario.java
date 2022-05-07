@@ -18,7 +18,7 @@ public class Usuario extends Persona implements Serializable {
     @Column(nullable = true)
     private boolean isAfiliado;
 
-    @OneToMany(mappedBy = "cedulaUsuario")
+    @OneToMany(mappedBy = "usuario")
     private List<Comentario> comentarios;
 
     @OneToMany(mappedBy = "usuario")

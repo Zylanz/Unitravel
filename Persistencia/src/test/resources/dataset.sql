@@ -14,7 +14,7 @@ insert into usuario values ("2", "b@mail.com", "nombre2", "pass2", true);
 insert into usuario values ("3", "c@mail.com", "nombre3", "pass3", true);
 insert into usuario values ("4", "d@mail.com", "nombre4", "pass4", true);
 insert into usuario values ("5", "e@mail.com", "nombre5", "pass5", true);
-insert into usuario values ("6", "f@mail.com", "nombre6", "pass6", true);
+insert into usuario values ("6", "mikasa6662@gmail.com", "nombre6", "pass6", true);
 insert into usuario values ("7", "g@mail.com", "nombre7", "pass7", true);
 
 insert into Ciudad values (1,"Cali");
@@ -289,150 +289,27 @@ INSERT INTO habitacion (cod_habitacion,capacidad,numero,precio,hotel_cod_hotel)
 VALUES
     (72,4,103,1602,24);
 
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (1,"2.9","es un comentario","2019-8-28",1,1);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+    (1,2,"descripcion","2022-4-22",1,"1");
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (2,"2.7","es un comentario","2021-2-11",1,2);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+    (2,3,"descripcion","2022-4-20",2,"2");
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (3,"3.0","es un comentario","2020-1-28",1,3);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+    (3,2,"descripcion","2022-4-21",3,"3");
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (4,"2.2","es un comentario","2019-1-5",1,4);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+    (4,5,"descripcion","2022-4-28",4,"4");
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (5,"2.7","Esto es un comentario","2018-6-24",1,5);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+    (5,0,"descripcion","2022-4-5",5,"5");
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (6,"2.8","es un comentario","2017-12-1",1,6);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
+    (6,2,"descripcion","2022-4-17",6,"6");
+INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,comentario_hotel_cod_hotel,usuario_cedula)
 VALUES
-    (7,"3.4","es un comentario","2020-7-3",1,7);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (8,"3.0","es un comentario","2020-3-5",2,8);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (9,"3.1","Esto es un comentario","2019-9-23",2,9);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (10,"3.6","es un comentario","2018-12-25",2,10);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (11,"3.4","es un comentario","2019-12-4",2,11);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (12,"2.5","es un comentario","2019-10-12",2,12);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (13,"3.3","es un comentario","2019-8-2",2,13);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (14,"2.9","es un comentario","2019-12-14",2,14);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (15,"3.1","es un comentario","2017-7-16",3,15);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (16,"3.0","es un comentario","2018-10-28",3,16);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (17,"2.4","es un comentario","2021-8-7",3,17);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (18,"2.8","es un comentario","2020-7-19",3,18);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (19,"2.7","Esto es un comentario","2021-7-29",3,19);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (20,"3.1","es un comentario","2019-11-23",3,20);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (21,"3.0","Esto es un comentario","2020-12-10",3,21);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (22,"2.2","es un comentario","2018-12-19",4,22);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (23,"3.0","Esto es un comentario","2017-6-14",4,23);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (24,"3.4","Esto es un comentario","2021-9-18",4,24);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (25,"1.8","Esto es un comentario","2019-12-30",4,1);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (26,"2.6","Esto es un comentario","2018-7-7",4,2);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (27,"2.7","es un comentario","2018-4-27",4,3);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (28,"2.7","es un comentario","2021-4-19",4,4);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (29,"3.2","es un comentario","2019-2-20",5,5);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (30,"3.4","Esto es un comentario","2019-8-31",5,6);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (31,"3.0","es un comentario","2018-11-19",5,7);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (32,"3.7","es un comentario","2020-10-4",5,8);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (33,"3.1","es un comentario","2019-3-16",5,9);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (34,"2.6","es un comentario","2020-8-9",5,10);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (35,"2.9","es un comentario","2021-3-9",5,11);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (36,"4.1","es un comentario","2018-12-26",6,12);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (37,"3.3","Esto es un comentario","2020-2-10",6,13);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (38,"2.8","es un comentario","2019-9-22",6,14);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (39,"2.7","Esto es un comentario","2021-1-29",6,15);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (40,"3.1","Esto es un comentario","2021-8-19",6,16);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (41,"2.6","es un comentario","2021-12-28",6,17);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (42,"2.5","Esto es un comentario","2018-9-21",6,18);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (43,"2.6","es un comentario","2020-8-17",7,19);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (44,"3.7","es un comentario","2019-1-24",7,20);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (45,"3.1","Esto es un comentario","2019-6-22",7,21);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (46,"2.9","es un comentario","2021-6-7",7,22);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (47,"3.3","Esto es un comentario","2017-5-19",7,23);
-INSERT INTO comentario (cod_comentario,calificacion,descripcion,fecha_comentario,cedula_usuario_cedula,comentarios_hotel_cod_hotel)
-VALUES
-    (48,"2.6","es un comentario","2022-1-11",7,24);
+    (7,1,"descripcion","2022-4-15",7,"7");
 
 INSERT INTO foto (cod_foto,ruta,cod_habitacion_cod_habitacion,cod_hotel_cod_hotel)
 VALUES
@@ -1316,49 +1193,28 @@ INSERT INTO hotel_telefonos_hotel (hotel_cod_hotel,telefonos_hotel)
 VALUES
     (24,"+57 317 616 1868");
 
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (1,"2022-7-9","2022-5-24","2022-6-18",2,1400,"1");
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+    (1,"2022-7-9","2022-5-24","2022-6-18",2,1400,1,"1");
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (2,"2022-7-24","2022-5-15","2022-6-15",1,977,"2");
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+    (2,"2022-7-24","2022-5-15","2022-6-15",1,977,2,"2");
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (3,"2022-7-14","2022-5-20","2022-6-14",2,2187,"3");
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+    (3,"2022-7-14","2022-5-20","2022-6-14",2,2187,3,"3");
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (4,"2022-7-7","2022-5-15","2022-6-15",2,2230,"4");
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+    (4,"2022-7-7","2022-5-15","2022-6-15",2,2230,4,"4");
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (5,"2022-8-19","2022-5-20","2022-6-23",2,1590,"5");
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+    (5,"2022-8-19","2022-5-20","2022-6-23",2,1590,5,"5");
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (6,"2022-8-16","2022-5-5","2022-6-25",1,1837,"6");
-INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,usuario_cedula)
+    (6,"2022-8-16","2022-5-5","2022-6-25",1,1837,6,"6");
+INSERT INTO reserva (cod_reserva,fecha_llegada,fecha_reserva,fecha_salida,metodo_de_pago,valor,hotel_cod_hotel,usuario_cedula)
 VALUES
-    (7,"2022-8-13","2022-5-27","2022-6-23",2,1937,"7");
+    (7,"2022-8-13","2022-5-27","2022-6-23",2,1937,7,"7");
 
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (1,11);
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (2,16);
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (3,6);
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (4,8);
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (5,4);
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (6,19);
-INSERT INTO reserva_hoteles (reservas_cod_reserva,hoteles_cod_hotel)
-VALUES
-    (7,23);
 
 INSERT INTO silla (cod_silla)
 VALUES
@@ -1782,64 +1638,64 @@ INSERT INTO silla_reservas (sillas_cod_silla,reservas_cod_reserva)
 VALUES
     (70,5);
 
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (1,"CopaAirlinesColombia","2022-7-29","19:21:00","6:30:32",8,3,5);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (1,"CopaAirlinesColombia",5.0,"2022-7-29","19:21:00","6:30:32",8,3,5);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (2,"AirNostrum","2022-7-13","0:36:07","9:33:49",7,2,8);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (2,"AirNostrum",5.0,"2022-7-13","0:36:07","9:33:49",7,2,8);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (3,"AmericanAirlines","2022-7-19","4:50:01","8:38:22",14,3,6);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (3,"AmericanAirlines",5.0,"2022-7-19","4:50:01","8:38:22",14,3,6);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (4,"CorsairFly","2022-7-22","18:46:25","8:42:54",38,4,6);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (4,"CorsairFly",5.0,"2022-7-22","18:46:25","8:42:54",38,4,6);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (5,"AirEuropa","2022-7-21","7:42:45","6:35:59",2,3,6);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (5,"AirEuropa",5.0,"2022-7-21","7:42:45","6:35:59",2,3,6);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (6,"CopaAirlinesColombia","2022-7-19","7:04:59","8:23:29",13,3,8);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (6,"CopaAirlinesColombia",5.0,"2022-7-19","7:04:59","8:23:29",13,3,8);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (7,"SkyAirline","2022-7-29","11:25:24","9:23:35",50,3,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (7,"SkyAirline",5.0,"2022-7-29","11:25:24","9:23:35",50,3,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (8,"CorsairFly","2022-7-27","4:21:43","9:28:53",12,3,5);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (8,"CorsairFly",5.0,"2022-7-27","4:21:43","9:28:53",12,3,5);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (9,"AirFrance","2022-7-21","0:15:03","6:48:48",32,1,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (9,"AirFrance",5.0,"2022-7-21","0:15:03","6:48:48",32,1,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (10,"DeltaAirlines","2022-7-7","2:25:59","7:08:06",51,3,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (10,"DeltaAirlines",5.0,"2022-7-7","2:25:59","7:08:06",51,3,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (11,"AmericanAirlines","2022-7-1","3:05:05","6:03:49",8,4,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (11,"AmericanAirlines",5.0,"2022-7-1","3:05:05","6:03:49",8,4,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (12,"SkyAirline","2022-7-3","18:14:57","8:03:24",66,3,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (12,"SkyAirline",5.0,"2022-7-3","18:14:57","8:03:24",66,3,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (13,"AustrianAirlines","2022-7-7","23:43:15","10:27:43",67,3,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (13,"AustrianAirlines",5.0,"2022-7-7","23:43:15","10:27:43",67,3,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (14,"Iberia","2022-7-13","13:12:50","11:09:03",22,1,5);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (14,"Iberia",5.0,"2022-7-13","13:12:50","11:09:03",22,1,5);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (15,"SATENA","2022-7-10","23:02:28","8:06:36",38,1,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (15,"SATENA",5.0,"2022-7-10","23:02:28","8:06:36",38,1,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (16,"CopaAirlinesColombia","2022-7-28","8:02:54","9:38:52",63,2,5);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (16,"CopaAirlinesColombia",5.0,"2022-7-28","8:02:54","9:38:52",63,2,5);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (17,"AirFrance","2022-7-7","0:42:00","9:04:00",59,1,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (17,"AirFrance",5.0,"2022-7-7","0:42:00","9:04:00",59,1,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (18,"SATENA","2022-7-17","22:56:29","11:47:05",14,3,7);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (18,"SATENA",5.0,"2022-7-17","22:56:29","11:47:05",14,3,7);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (19,"AirEuropa","2022-7-26","21:19:55","9:58:07",11,2,6);
-INSERT INTO vuelo (codigo,aerolinea,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
+    (19,"AirEuropa",5.0,"2022-7-26","21:19:55","9:58:07",11,2,6);
+INSERT INTO vuelo (codigo,aerolinea,costo,fecha,hora_aterrizaje,hora_despegue,silla,cod_destino_cod_ciudad,cod_origen_cod_ciudad)
 VALUES
-    (20,"AirEuropa","2022-7-31","6:41:24","10:30:10",4,1,7);
+    (20,"AirEuropa",5.0,"2022-7-31","6:41:24","10:30:10",4,1,7);
 

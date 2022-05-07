@@ -8,6 +8,8 @@ public interface UsuarioServicio {
 
     Usuario registrarUsuario(Usuario u) throws Exception;
 
+    Usuario obtenerUsuario(String cedula);
+
     Usuario actualizarUsuario(Usuario u) throws Exception;
 
     void eliminarUsuario(String cedula) throws Exception;
@@ -23,11 +25,13 @@ public interface UsuarioServicio {
     Reserva actualizarReserva(Reserva r) throws Exception;
 
     List<Reserva> listarReservas();
+
     boolean isAfiliado(Usuario u) throws Exception;
 
     List<Hotel> listarHotelesPorCiudad(String nombreCiudad) throws Exception;
 
     Reserva obtenerReserva(int codigoReserva) throws Exception;
+
     void recuperarPassword(String email) throws Exception;
 
     Comentario agregarComentario(Comentario c) throws Exception;
