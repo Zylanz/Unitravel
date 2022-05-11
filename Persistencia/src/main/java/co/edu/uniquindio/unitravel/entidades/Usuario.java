@@ -8,7 +8,7 @@ import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
+//Usuario :v
 @Entity
 @NoArgsConstructor
 @Setter@Getter
