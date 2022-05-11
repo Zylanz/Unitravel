@@ -140,7 +140,7 @@ public class AdministradorServicioTest {
     }
 
     //Gestionar Vuelos Test
-
+/*
     @Test
     @Sql("classpath:dataset.sql")
     public void registrarVueloTest(){
@@ -156,7 +156,7 @@ public class AdministradorServicioTest {
             e.printStackTrace();
         }
     }
-
+*/
     @Test
     @Sql("classpath:dataset.sql")
     public void actualizarVueloTest(){
