@@ -1,7 +1,6 @@
 rootProject.name = 'Unitravel'
 include 'Persistencia'
-include 'Persistencia'
-include 'Test'
 include 'Persistencia:src'
 findProject(':Persistencia:src')?.name = 'test'
+include 'Web'
 

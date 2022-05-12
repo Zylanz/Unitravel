@@ -10,7 +10,7 @@
         </processorPath>
         <module name="Unitravel.Persistencia.test.main" />
         <module name="Unitravel.Persistencia.main" />
-        <module name="Unitravel.Test.main" />
+        <module name="Unitravel.Web.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />
