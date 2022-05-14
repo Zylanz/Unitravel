@@ -130,6 +130,9 @@ public class UsuarioServicioImpl implements UsuarioServicio{
             contador++;
         }
 
+        //qué pasa si es afiliado?
+        //mandar correo de reserva
+
         r.setSillas(sillasReservadas);
 
         return reservaRepo.save(r);

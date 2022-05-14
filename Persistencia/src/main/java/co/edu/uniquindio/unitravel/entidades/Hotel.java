@@ -35,6 +35,10 @@ public class Hotel implements Serializable {
     @ManyToMany
     private List<Caracteristica> caracteristicas;
 
+
+    @ManyToOne
+    private AdminHotel administrador;
+
     @ManyToOne
     private Ciudad codCiudad;
 
@@ -47,8 +51,6 @@ public class Hotel implements Serializable {
     @OneToMany(mappedBy = "hotel")
     private List<Habitacion> habitaciones;
 
-    @ManyToOne
-    private AdminHotel administrador;
 
     public Hotel(int codHotel, String nombre, String direccion, double numEstrellas) {
         this.codHotel = codHotel;

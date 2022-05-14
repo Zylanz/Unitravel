@@ -24,6 +24,8 @@ public class UsuarioTest {
 
     @Autowired
     private UsuarioRepo usuarioRepo;
+
+    @Autowired
     private EmailService emailService;
 
 
@@ -71,11 +73,11 @@ public class UsuarioTest {
 
     @Test
     @Sql("classpath:dataset.sql")
-    public void buscarPorCorreoContraseña(){
+    public void buscarPorCorreoContraseña(){ //ojocon las eñes
 
         Optional<Usuario> userFound = usuarioRepo.findUsuarioByEmailAndPassword
                 ("a@mail.com","pass1");
-        Assertions.assertEquals("cedula1",userFound.get().getCedula());
+        Assertions.assertEquals("1",userFound.get().getCedula());
     }
     @Test
     @Sql("classpath:dataset.sql")
@@ -100,7 +102,7 @@ public class UsuarioTest {
 
     @Test
     public void enviarCorreoTest(){
-        boolean estado = emailService.enviarEmail("Prueba", "Este es un mensaje","nmurilloc@uqvirtual.edu.co");
+        boolean estado = emailService.enviarEmail("Prueba", "Este es un mensaje","caflorez@uniquindio.edu.co");
 
     }
 }

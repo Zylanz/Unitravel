@@ -42,7 +42,7 @@ public class Vuelo implements Serializable {
 
     //Generado Aleatoriamente
     @Column(nullable = false)
-    private int silla;
+    private int silla; //Lista sillas
 
     @ManyToOne
     private Ciudad codOrigen;
