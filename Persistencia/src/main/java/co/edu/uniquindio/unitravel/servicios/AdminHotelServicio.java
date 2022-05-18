@@ -1,6 +1,7 @@
 package co.edu.uniquindio.unitravel.servicios;
 
 import co.edu.uniquindio.unitravel.entidades.AdminHotel;
+import co.edu.uniquindio.unitravel.entidades.Ciudad;
 import co.edu.uniquindio.unitravel.entidades.Hotel;
 
 import java.util.List;
@@ -30,5 +31,8 @@ public interface AdminHotelServicio {
     void eliminarHotel(int codigo) throws Exception;
 
     List<Hotel> listarHoteles();
+
+    Ciudad obtenerCiudad(Integer codigo) throws Exception;
+
 
 }

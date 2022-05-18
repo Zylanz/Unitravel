@@ -1,9 +1,12 @@
 package co.edu.uniquindio.unitravel.servicios;
 
 import co.edu.uniquindio.unitravel.entidades.AdminHotel;
+import co.edu.uniquindio.unitravel.entidades.Ciudad;
 import co.edu.uniquindio.unitravel.entidades.Hotel;
 import co.edu.uniquindio.unitravel.repositorios.AdminHotelRepo;
+import co.edu.uniquindio.unitravel.repositorios.CiudadRepo;
 import co.edu.uniquindio.unitravel.repositorios.HotelRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +15,13 @@ import java.util.Optional;
 @Service
 public class AdminHotelServicioImpl implements AdminHotelServicio{
 
-    AdminHotelRepo adminHotelRepo;
-    HotelRepo hotelRepo;
+    @Autowired
+    private AdminHotelRepo adminHotelRepo;
+
+    @Autowired
+    private HotelRepo hotelRepo;
+    @Autowired
+    private CiudadRepo ciudadRepo;
 
     public AdminHotelServicioImpl(AdminHotelRepo adminHotelRepo,
                                   HotelRepo hotelRepo){
@@ -112,5 +120,10 @@ public class AdminHotelServicioImpl implements AdminHotelServicio{
     @Override
     public List<Hotel> listarHoteles() {
         return hotelRepo.findAll();
+    }
+
+    @Override
+    public Ciudad obtenerCiudad(Integer codigo) throws Exception {
+        return ciudadRepo.findById(codigo).orElse(null);
     }
 }

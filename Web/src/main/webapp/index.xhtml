@@ -12,6 +12,42 @@
     <title>Página de Inicio</title>
 </h:head>
 <h:body>
-    <h1>#{inicioBean.mensaje}</h1>
+    <div id = "encabezado">
+
+        <ul>
+            <li> <a href=""> Inicio</a> </li>
+            <li> <a href="registrar_usuario.xhtml"> Registrarse</a> </li>
+            <li> <a href="crear_hotel.xhtml"> Crear Hotel</a> </li>
+            <li> <a href=""> Lista hoteles</a> </li>
+            <li> <a href="mis_reservas.xhtml"> Lista mis reservas</a> </li>
+
+
+        </ul>
+
+    </div>
+    <div id = "contenido">
+        <h:form>
+            <div class="input-search ui-inputgroup">
+                <p:inputText placeholder="¿Qué Hotel está buscando?"
+
+                             required="true" value="#{busquedaBean.busqueda}" />
+
+                <p:commandButton update="@form" icon="pi pi-search"
+                                 action="#{busquedaBean.buscar}" />
+
+            </div>
+        </h:form>
+
+        <p> Lista de ciudades</p>
+
+        <p> Hoteles recomendaos</p>
+
+
+    </div>
+    <div id = "pie_pagina">
+
+        <p> Unitravel - Uniquindio -2022</p>
+
+    </div>
 </h:body>
 </html>

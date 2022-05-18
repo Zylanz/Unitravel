@@ -2,8 +2,6 @@ package co.edu.uniquindio.unitravel.servicios;
 
 import co.edu.uniquindio.unitravel.entidades.*;
 import co.edu.uniquindio.unitravel.repositorios.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -237,5 +235,10 @@ public class UsuarioServicioImpl implements UsuarioServicio{
             throw new Exception("El usuario no esta registrado");
         }
         return  comentarioRepo.save(c);
+    }
+
+    @Override
+    public List<Hotel> buscarPorNombre(String nombreHotel) {
+           return hotelRepo.buscarPorNombre(nombreHotel);
     }
 }

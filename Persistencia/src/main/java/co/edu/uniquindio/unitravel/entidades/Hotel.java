@@ -10,6 +10,7 @@ import java.util.List;
 @Entity @Setter @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor @AllArgsConstructor
+@ToString
 public class Hotel implements Serializable {
 
     @Id @EqualsAndHashCode.Include

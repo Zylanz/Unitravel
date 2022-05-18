@@ -35,4 +35,7 @@ public interface UsuarioServicio {
     void recuperarPassword(String email) throws Exception;
 
     Comentario agregarComentario(Comentario c) throws Exception;
+
+    List<Hotel> buscarPorNombre(String nombreHotel);
+
 }
