@@ -3,7 +3,7 @@
     margin-right: 10px;
 }
 .color-principal{
-    background-color: #2F8F9D;
+    background-color: #3BACB6;
 }
 .icon-menu{
     font-size:  1.5rem;
@@ -11,7 +11,7 @@
     height: 24px;
 }
 .text-active{
-    color: #10f700 !important;
+    color: #2F8F9D !important;
 }
 #busqueda_h .ui-inputtext{
     width: 400px;

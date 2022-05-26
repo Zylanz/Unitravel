@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Component
 @ViewScoped
 public class InicioBean implements Serializable {
-    private String mensaje = "Mi primera página en JSF posdata Muñeton es una perra";
+    private String mensaje = "Mi primera página en JSF posdata";
 
     public String getMensaje() {
         return mensaje;
