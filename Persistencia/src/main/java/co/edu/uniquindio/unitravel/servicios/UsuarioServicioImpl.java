@@ -94,7 +94,7 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     public Reserva realizarReserva(Hotel h, Reserva r, Usuario u, int cantidadSillas) throws Exception
     {
         Optional<Hotel> hotelBuscado=hotelRepo.findByCodHotel(h.getCodHotel());
-        Optional<Reserva> reservaBuscada=reservaRepo.buscarReservaPorHotel(r.getFechaReserva(), hotelBuscado.get().getCodHotel());
+        Optional<Reserva> reservaBuscada=reservaRepo.buscarReservaPorHotel(r.getFechaSalida(), hotelBuscado.get().getCodHotel());
 
         if (reservaBuscada.isPresent())
         {
@@ -110,7 +110,7 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 
 
         int contador=0;
-        List<Silla> sillasReservadas=new ArrayList<>();
+        List<Silla> sillasReservadas = new ArrayList<>();
 
         while(contador<cantidadSillas)
         {
@@ -128,10 +128,27 @@ public class UsuarioServicioImpl implements UsuarioServicio{
             contador++;
         }
 
-        //qué pasa si es afiliado?
+        r.setSillas(sillasReservadas);
+
+        double valorSillas = 0;
+        for (int i = 0; i < sillasReservadas.size(); i++) {
+            valorSillas += sillasReservadas.get(i).getValor();
+        }
+
+        double valorHabitaciones = 0;
+        for (int i = 0; i < r.getHabitaciones().size(); i++) {
+            valorHabitaciones += r.getHabitaciones().get(i).getPrecio();
+        }
+
+        r.setValor(valorHabitaciones+valorSillas);
+
+        if (usuarioBuscado.get().isAfiliado()){
+            r.setValor(r.getValor()-(r.getValor()*(0.1)));
+        }
+
         //mandar correo de reserva
 
-        r.setSillas(sillasReservadas);
+
 
         return reservaRepo.save(r);
     }

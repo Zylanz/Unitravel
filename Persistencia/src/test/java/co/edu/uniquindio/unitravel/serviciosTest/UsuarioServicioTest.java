@@ -91,7 +91,7 @@ public class UsuarioServicioTest {
         Hotel hotel = new Hotel();
         Reserva reserva = new Reserva
                 (7, 5, MetodoPago.CREDITO,LocalDate.of(2022,7,9), LocalDate.of(2022,5,24),
-                        LocalDate.of(2022,6,18),new ArrayList<>(),hotel,usuario);
+                        LocalDate.of(2022,6,18),new ArrayList<>(),hotel,new ArrayList<>(),usuario);
         try {
             Reserva guardada = usuarioServicio.realizarReserva(hotel,reserva,usuario,5);
             Assertions.assertNotNull(guardada);

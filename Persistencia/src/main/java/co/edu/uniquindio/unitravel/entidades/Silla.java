@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,9 +20,11 @@ public class Silla implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codSilla;
 
+    @Column @Positive
+    private double valor;
+
     @ManyToMany
     private List<Reserva> reservas;
 
-    //@Column
-    //private UbicacionSilla ubicacionSilla;
+
 }

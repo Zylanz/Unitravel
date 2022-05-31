@@ -14,11 +14,11 @@ import java.util.Optional;
 @Repository
 public interface ReservaRepo extends JpaRepository<Reserva, Integer>
 {
-    @Query("select r from Reserva r where r.fechaReserva = :fecha")
+    @Query("select r from Reserva r where r.fechaSalida = :fecha")
     Reserva comprobarFecha(LocalDate fecha);
 
     List<Reserva> findAllByFechaReserva(LocalDate fecha);
 
-    @Query("select r from Reserva r join r.hotel h where r.fechaReserva = :fecha and h.codHotel = :cod")
+    @Query("select r from Reserva r join r.hotel h where r.fechaSalida = :fecha and h.codHotel = :cod")
     Optional<Reserva> buscarReservaPorHotel(LocalDate fecha, int cod);
 }

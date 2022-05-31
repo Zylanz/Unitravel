@@ -35,4 +35,5 @@ public interface AdminHotelServicio {
     Ciudad obtenerCiudad(Integer codigo) throws Exception;
 
 
+
 }

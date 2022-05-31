@@ -42,6 +42,8 @@ public interface AdministradorServicio {
 
     void eliminarVuelo(int codigo) throws Exception;
 
+    List<Vuelo> listarVuelosPorCiudad(int codigo) throws Exception;
+
     List<Vuelo> listarVuelos();
 
     //Gestionar administradores de hotel

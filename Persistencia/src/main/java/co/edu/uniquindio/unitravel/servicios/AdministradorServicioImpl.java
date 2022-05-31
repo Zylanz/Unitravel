@@ -157,6 +157,13 @@ public class AdministradorServicioImpl implements AdministradorServicio{
     }
 
     @Override
+    public List<Vuelo> listarVuelosPorCiudad(int codigo) throws  Exception{
+        List<Vuelo> vuelos = vueloRepo.findAllByCodOrigen(codigo);
+        return vuelos;
+    }
+
+
+    @Override
     public List<Vuelo> listarVuelos() {
         List<Vuelo> vuelos = vueloRepo.findAll();
         return vuelos;
