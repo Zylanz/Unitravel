@@ -34,13 +34,16 @@ public class Habitacion implements Serializable {
     @ElementCollection
     private List<Cama> camas;
 
-    @OneToMany(mappedBy = "codHabitacion")
-    private List<Foto> fotos;
+    @ElementCollection
+    private List<String> fotos;
 
     @ManyToMany
     private List<Caracteristica> caracteristicas;
 
     @ManyToOne
     private Hotel hotel;
+
+    @ManyToOne
+    private Reserva reserva;
 
 }

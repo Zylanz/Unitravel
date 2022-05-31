@@ -30,12 +30,11 @@ public class Hotel implements Serializable {
     @ElementCollection
     private List<String> telefonosHotel;
 
-    @OneToMany(mappedBy = "codHotel")
-    private List<Foto> fotos;
+    @ElementCollection
+    private List<String> fotos;
 
     @ManyToMany
     private List<Caracteristica> caracteristicas;
-
 
     @ManyToOne
     private AdminHotel administrador;

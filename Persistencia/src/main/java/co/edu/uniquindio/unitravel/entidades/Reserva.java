@@ -37,7 +37,10 @@ public class Reserva implements Serializable {
     private List<Silla> Sillas;
 
     @ManyToOne
-    private Hotel hotel; // lista habitaciones
+    private Hotel hotel;
+
+    @OneToMany (mappedBy = "reserva")
+    private List<Habitacion> habitaciones;
 
     @ManyToOne
     private Usuario usuario;
