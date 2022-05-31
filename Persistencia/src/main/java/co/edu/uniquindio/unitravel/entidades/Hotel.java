@@ -25,7 +25,7 @@ public class Hotel implements Serializable {
 
     @Column(nullable = false)
     @Positive
-    private double numEstrellas;
+    private int numEstrellas;
 
     @ElementCollection
     private List<String> telefonosHotel;
@@ -52,7 +52,7 @@ public class Hotel implements Serializable {
     private List<Habitacion> habitaciones;
 
 
-    public Hotel(int codHotel, String nombre, String direccion, double numEstrellas) {
+    public Hotel(int codHotel, String nombre, String direccion, int numEstrellas) {
         this.codHotel = codHotel;
         this.nombre = nombre;
         this.direccion = direccion;
