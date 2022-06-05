@@ -25,14 +25,52 @@
                 <p:outputLabel value="Número estrellas:" for="num_estrellas"/>
                 <p:inputText id="num_estrellas"  type="number"  value="#{hotelBean.hotel.numEstrellas}" required="true"/>
 
+                <p:outputLabel for="imagenes_hotel" value="Imágenes: " />
+                <p:fileUpload id="imagenes_hotel"
+
+                              listener="#{hotelBean.subirImagenes}" mode="advanced"
+                              multiple="true" sizeLimit="1000000" fileLimit="5"
+                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true" />
             </h:panelGrid>
 
             <p:growl showDetail="true"/>
 
-            <p:commandButton value="Crear hotel" action="#{hotelBean.registrarHotel()}" update="@form"/>
+            <p:commandButton value="Adicionar habitación" onclick="PF('crear_hab').show()" update="@form" icon="pi pi-plus"/>
+            <br/>
+            <br/>
+            <p:commandButton value="Crear hotel" action="#{hotelBean.registrarHotel()}" update="@form" icon="pi pi-check"/>
 
             <p:growl showDetail="true"/>
         </h:form>
     </p:panel>
+    <p:dialog header="Crear Habitación" widgetVar="crear_hab" modal="true" showEffect="fade" draggable="false">
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+
+                <p:outputLabel value="Número Habitación:" for="num_hab"/>
+                <p:inputText id="num_hab" type="test" value="#{habitacionBean.habitacion.numero}"  required="true" />
+
+                <p:outputLabel value="Capacidad:" for="cap_hab"/>
+                <p:inputText id="cap_hab" type="test" value="#{habitacionBean.habitacion.capacidad}"  required="true" />
+                <p:outputLabel value="Precio:" for="precio_hab"/>
+                <p:inputText id="precio_hab" type="test" value="#{habitacionBean.habitacion.precio}"  required="true" />
+
+                <p:outputLabel for="imagenes_hab" value="Imágenes: " />
+                <p:fileUpload id="imagenes_hab"
+                  listener="#{hotelBean.subirImagenes}" mode="advanced"
+                              multiple="true" sizeLimit="1000000" fileLimit="5"
+                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true" />
+
+                <p:growl showDetail="true"/>
+<!--                Esto no es funcional, solo esta puesto por cuestiones practicas-->
+                <p:commandButton value="Crear habitacion" action="#{habitacionBean.registrarHabitacion()}" update="@form" icon="pi pi-check"/>
+                <p:growl showDetail="true"/>
+
+            </h:panelGrid>
+
+
+        </h:form>
+
+    </p:dialog>
 </h:body>
 </html>
