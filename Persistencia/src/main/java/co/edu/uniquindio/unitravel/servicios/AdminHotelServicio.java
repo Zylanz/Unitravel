@@ -1,6 +1,7 @@
 package co.edu.uniquindio.unitravel.servicios;
 
 import co.edu.uniquindio.unitravel.entidades.AdminHotel;
+import co.edu.uniquindio.unitravel.entidades.Caracteristica;
 import co.edu.uniquindio.unitravel.entidades.Ciudad;
 import co.edu.uniquindio.unitravel.entidades.Hotel;
 
@@ -34,6 +35,11 @@ public interface AdminHotelServicio {
 
     Ciudad obtenerCiudad(Integer codigo) throws Exception;
 
+    List<Caracteristica> listarCaracteristicasHotel();
+
+    List<Caracteristica> listarCaracteristicasHabitacion();
+
+    Caracteristica obtenerCaracteristica(int codCaracteristica)throws Exception;
 
 
 }

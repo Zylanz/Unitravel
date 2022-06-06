@@ -1,9 +1,11 @@
 package co.edu.uniquindio.unitravel.bean;
 
 import co.edu.uniquindio.unitravel.entidades.AdminHotel;
+import co.edu.uniquindio.unitravel.entidades.Caracteristica;
 import co.edu.uniquindio.unitravel.entidades.Ciudad;
 import co.edu.uniquindio.unitravel.entidades.Hotel;
 import co.edu.uniquindio.unitravel.servicios.AdminHotelServicio;
+import co.edu.uniquindio.unitravel.servicios.AdministradorServicio;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.io.IOUtils;
@@ -19,19 +21,33 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @ViewScoped
 public class HotelBean implements Serializable {
 
+    @Value("${upload.url}")
+    private String urlImagenes;
     @Getter@Setter
     private Hotel hotel;
 
+    @Getter@Setter
+    private Ciudad ciudad;
+
+    @Getter@Setter
+    private List<Ciudad> ciudades;
+
+    @Getter@Setter
+    private Caracteristica caracteristica;
+
+    @Getter@Setter
+    private List<Caracteristica> caracteristicas;
     @Autowired
     private AdminHotelServicio adminHotelServicio;
 
-    @Value("${upload.url}")
-    private String urlImagenes;
+    @Autowired
+    private AdministradorServicio ciudadServicio;
 
 
     @Setter@Getter
@@ -40,13 +56,15 @@ public class HotelBean implements Serializable {
     @PostConstruct
     public void inicializar(){
         this.imagenes = new ArrayList<>();
+        ciudades = ciudadServicio.listarCiudades();
         hotel = new Hotel();
+        caracteristicas = adminHotelServicio.listarCaracteristicasHotel();
     }
 
     public String registrarHotel(){
         try {
             if (imagenes.size()>0){
-                Ciudad ciudad = adminHotelServicio.obtenerCiudad(2);
+
                 AdminHotel adminHotel= adminHotelServicio.obtenerAdminHotel("1");
 
 

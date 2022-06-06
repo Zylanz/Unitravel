@@ -38,4 +38,6 @@ public interface UsuarioServicio {
 
     List<Hotel> buscarPorNombre(String nombreHotel);
 
+    Ciudad obtenerCiudad(int codigo) throws Exception;
+
 }

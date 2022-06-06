@@ -18,6 +18,9 @@ public class Caracteristica implements Serializable {
     @EqualsAndHashCode.Include
     private int codCaracteristica;
 
+    @Column(nullable = false,length = 2)
+    private int tipo;
+
     @Column(nullable = false,length = 100)
     private String descripcion;
 

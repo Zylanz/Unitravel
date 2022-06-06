@@ -25,12 +25,23 @@
                 <p:outputLabel value="Número estrellas:" for="num_estrellas"/>
                 <p:inputText id="num_estrellas"  type="number"  value="#{hotelBean.hotel.numEstrellas}" required="true"/>
 
+                <p:outputLabel for="ciudad_h" value="Ciudad: " />
+                <p:selectOneMenu id="ciudad_h" value="#{hotelBean.hotel.codCiudad}" required="true" requiredMessage="La ciudad es obligatoria" converter="#{ciudadConverter}">
+                    <f:selectItem itemLabel="Seleccionar ciudad" noSelectionOption="true"/>
+                    <f:selectItems value="#{hotelBean.ciudades}" var="ciudad" itemLabel="#{ciudad.nombre}" itemValue="#{ciudad}"/>
+                </p:selectOneMenu>
+
                 <p:outputLabel for="imagenes_hotel" value="Imágenes: " />
                 <p:fileUpload id="imagenes_hotel"
-
                               listener="#{hotelBean.subirImagenes}" mode="advanced"
                               multiple="true" sizeLimit="1000000" fileLimit="5"
                               allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true" />
+
+
+                <p:outputLabel for="caract_h" value="Caracteristicas: " />
+                <p:selectManyCheckbox id="caract_h" value="#{hotelBean.hotel.caracteristicas}" required="true" requiredMessage="La ciudad es obligatoria" converter="#{caracteristicasConverter}">
+                    <f:selectItems value="#{hotelBean.caracteristicas}" var="car" itemLabel="#{car.descripcion}" itemValue="#{car}"/>
+                </p:selectManyCheckbox>
             </h:panelGrid>
 
             <p:growl showDetail="true"/>

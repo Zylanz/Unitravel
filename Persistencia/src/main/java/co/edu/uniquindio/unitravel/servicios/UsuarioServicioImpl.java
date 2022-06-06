@@ -258,4 +258,9 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     public List<Hotel> buscarPorNombre(String nombreHotel) {
            return hotelRepo.buscarPorNombre(nombreHotel);
     }
+
+    @Override
+    public Ciudad obtenerCiudad(int codigo) {
+        return ciudadRepo.findById(codigo).orElse(null);
+    }
 }

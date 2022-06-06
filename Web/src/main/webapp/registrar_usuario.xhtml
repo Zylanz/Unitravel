@@ -25,8 +25,8 @@
             <p:outputLabel value="Email:" for="email_u"/>
             <p:inputText id="email_u" type="email" value="#{usuarioBean.usuario.email}" required="true"/>
 
-            <p:outputLabel value="Contraseña:" for="pass_u"/>
-            <p:password id="pass_u"  value="#{usuarioBean.usuario.password}" feedback="true" required="true"/>
+            <p:outputLabel value="Contraseña:" for="password_u"/>
+            <p:password id="password_u" value="#{usuarioBean.usuario.password}" feedback="true"/>
 
         </h:panelGrid>
         <p:commandButton value="Registrar" update="@form" action="#{usuarioBean.registrarUsuario()}"   />

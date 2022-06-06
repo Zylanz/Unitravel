@@ -7,12 +7,10 @@ import java.io.Serializable;
 @Component
 @ViewScoped
 public class InicioBean implements Serializable {
-    private String mensaje = "Mi primera página en JSF posdata";
 
-    public String getMensaje() {
-        return mensaje;
-    }
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public  String irRegistro(){
+
+    return "registrar_usuario?faces-redirect=true";
+
     }
 }
