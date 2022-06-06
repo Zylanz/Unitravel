@@ -263,4 +263,9 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     public Ciudad obtenerCiudad(int codigo) {
         return ciudadRepo.findById(codigo).orElse(null);
     }
+
+    @Override
+    public List<Hotel> listarHoteles() {
+        return hotelRepo.findAll();
+    }
 }

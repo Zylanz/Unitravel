@@ -1,9 +1,6 @@
 package co.edu.uniquindio.unitravel.servicios;
 
-import co.edu.uniquindio.unitravel.entidades.AdminHotel;
-import co.edu.uniquindio.unitravel.entidades.Caracteristica;
-import co.edu.uniquindio.unitravel.entidades.Ciudad;
-import co.edu.uniquindio.unitravel.entidades.Hotel;
+import co.edu.uniquindio.unitravel.entidades.*;
 
 import java.util.List;
 
@@ -40,6 +37,10 @@ public interface AdminHotelServicio {
     List<Caracteristica> listarCaracteristicasHabitacion();
 
     Caracteristica obtenerCaracteristica(int codCaracteristica)throws Exception;
+
+    Habitacion registrarHabitacion(Habitacion h) throws Exception;
+
+    List<Cama> listarCamas();
 
 
 }

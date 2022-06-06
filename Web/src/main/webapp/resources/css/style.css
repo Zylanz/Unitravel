@@ -16,3 +16,12 @@
 #busqueda_h .ui-inputtext{
     width: 400px;
 }
+.imagen-hotel{
+    width: 100%;
+}
+body .ui-dataview .ui-dataview-content{
+    background: none;
+}
+.item-ciudad{
+    text-align: center;
+}

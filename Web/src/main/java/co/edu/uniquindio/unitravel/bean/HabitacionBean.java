@@ -1,9 +1,6 @@
 package co.edu.uniquindio.unitravel.bean;
 
-import co.edu.uniquindio.unitravel.entidades.AdminHotel;
-import co.edu.uniquindio.unitravel.entidades.Ciudad;
-import co.edu.uniquindio.unitravel.entidades.Habitacion;
-import co.edu.uniquindio.unitravel.entidades.Hotel;
+import co.edu.uniquindio.unitravel.entidades.*;
 import co.edu.uniquindio.unitravel.servicios.AdminHotelServicio;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @ViewScoped
@@ -40,10 +38,17 @@ public class HabitacionBean implements Serializable {
     @Setter@Getter
     private ArrayList<String> imagenes;
 
+    @Getter@Setter
+    private Caracteristica caracteristica;
+
+    @Getter@Setter
+    private List<Caracteristica> caracteristicas;
+
     @PostConstruct
     public void inicializar(){
         this.imagenes = new ArrayList<>();
         habitacion = new Habitacion();
+        caracteristicas = adminHotelServicio.listarCaracteristicasHotel();
     }
     public String registrarHabitacion(){
         try {

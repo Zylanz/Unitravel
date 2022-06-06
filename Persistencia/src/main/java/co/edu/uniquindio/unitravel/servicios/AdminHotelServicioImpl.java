@@ -1,13 +1,7 @@
 package co.edu.uniquindio.unitravel.servicios;
 
-import co.edu.uniquindio.unitravel.entidades.AdminHotel;
-import co.edu.uniquindio.unitravel.entidades.Caracteristica;
-import co.edu.uniquindio.unitravel.entidades.Ciudad;
-import co.edu.uniquindio.unitravel.entidades.Hotel;
-import co.edu.uniquindio.unitravel.repositorios.AdminHotelRepo;
-import co.edu.uniquindio.unitravel.repositorios.CaracteristicasRepo;
-import co.edu.uniquindio.unitravel.repositorios.CiudadRepo;
-import co.edu.uniquindio.unitravel.repositorios.HotelRepo;
+import co.edu.uniquindio.unitravel.entidades.*;
+import co.edu.uniquindio.unitravel.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +18,9 @@ public class AdminHotelServicioImpl implements AdminHotelServicio{
     private HotelRepo hotelRepo;
     @Autowired
     private CiudadRepo ciudadRepo;
+
+    @Autowired
+    private HabitacionRepo habRepo;
 
     @Autowired
     private CaracteristicasRepo caracteristicasRepo;
@@ -144,5 +141,19 @@ public class AdminHotelServicioImpl implements AdminHotelServicio{
     @Override
     public Caracteristica obtenerCaracteristica(int codCaracteristica) throws Exception {
         return caracteristicasRepo.findById(codCaracteristica).orElseThrow(() -> new Exception("El código no existe"));
+    }
+
+    @Override
+    public Habitacion registrarHabitacion(Habitacion hab) throws Exception {
+        Optional<Habitacion> buscado = habRepo.findById(hab.getCodHabitacion());
+        if(buscado.isPresent()){
+            throw new Exception("La habitación ya se encuentra registrada");
+        }
+        return habRepo.save(hab);
+    }
+
+    @Override
+    public List<Cama> listarCamas() {
+        return null;
     }
 }

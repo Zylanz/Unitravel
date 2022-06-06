@@ -40,4 +40,7 @@ public interface UsuarioServicio {
 
     Ciudad obtenerCiudad(int codigo) throws Exception;
 
+    List<Hotel> listarHoteles();
+
+
 }
